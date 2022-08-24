@@ -1,0 +1,40 @@
+.search-bar {
+  margin-right: 5px;
+  border: 1px solid light-gray;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+button {
+  margin-left: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(22, 22, 22);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-style: none;
+}
+
+.container {
+  width: 50%;
+  margin: auto;
+  padding: 20px;
+  margin-top: 50px;
+  border: solid 1px gray;
+}
+
+.new-note-container {
+  display: flex;
+  justify-content: center;
+}
+
+.list-container {
+  display: flex;
+  justify-content: center;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+}

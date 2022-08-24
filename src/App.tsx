@@ -1,25 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import NewNote from './newNoteComponent';
+import {NotesState} from "./notesReducer";
+import {addNoteAction} from "./actions";
 
 function App() {
+  const notes = useSelector<NotesState, NotesState["notes"]>((state) => state.notes);
+
+  const dispatch = useDispatch();
+
+  const addNote = (note: string) => {
+    dispatch(addNoteAction(note));
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="container">
+        <div className="new-note-container">
+          <NewNote onAddNote={addNote} />
+        </div>
+        <hr/>
+        <div className="list-container">
+          <ul className="list">
+            {notes.map((note) => {
+              return (
+                <div>
+                  <li>{note}</li>
+                </div>
+              )
+            })}
+          </ul>
+        </div>
+      </div>
+    </>
   );
 }
 
